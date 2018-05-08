@@ -1,0 +1,89 @@
+<form [formGroup]="dynamicFormGroup" (ngSubmit)="onSubmit()">
+
+  <!-- Show each field defined in the schema. -->
+  <ng-container *ngFor="let fieldinfo of schema">
+
+    <!-- Labels in column 1. -->
+    <label [for]="fieldinfo.fieldname" class="label-col">
+      {{ fieldinfo.fieldlabel }}
+
+      <!--
+        Add a marker to the label for mandatory fields. Use visibility
+        (instead of *ngIf or display:none) so the <span> takes up the
+        same amount of space whether it's visible or not.
+      -->
+      <span class="red-text"
+        [style.visibility]=" fieldinfo.mandatory ? 'visible' : 'hidden' "
+      >&raquo;</span>
+    </label>
+
+    <!-- Form controls in column 2. -->
+    <!-- Generate the appropriate type of input control. -->
+    <input class="control-col" [type]="fieldinfo.fieldtype"
+      [name]="fieldinfo.fieldname"
+      [id]="fieldinfo.fieldname"
+      [formControlName]="fieldinfo.fieldname">
+
+    <!-- Validation column 3.
+        If the user has touched the control, show a success icon (a
+        green checkmark) if it's valid, or an error icon (a red circled
+        exclamation mark) and any error messages if not.
+      -->
+    <div class="validation-col" *ngIf="controls[ fieldinfo.fieldname ].touched">
+
+      <!-- Control is valid, so show the green checkmark. -->
+      <div *ngIf="controls[ fieldinfo.fieldname ].valid">
+        <i class="tiny material-icons green-text">done</i>
+      </div>
+
+      <!-- Control is invalid, so show the error icon and any errors. -->
+      <div *ngIf="!controls[ fieldinfo.fieldname ].valid" class="red-text valign-wrapper">
+        <i class="tiny material-icons">error</i> &nbsp;
+
+        <span *ngIf="controls[ fieldinfo.fieldname ].hasError('required')">
+          {{ fieldinfo.fieldlabel }} is required.
+        </span>
+
+        <span *ngIf="controls[ fieldinfo.fieldname ].hasError('minlength')">
+          {{ fieldinfo.fieldlabel }} must be at least
+          {{ controls[ fieldinfo.fieldname ].errors.minlength.requiredLength }}
+          characters long.
+        </span>
+
+        <span *ngIf="controls[ fieldinfo.fieldname ].hasError('maxlength')">
+          {{ fieldinfo.fieldlabel }} cannot be more than
+          {{ controls[ fieldinfo.fieldname ].errors.maxlength.requiredLength }}
+          characters long.
+        </span>
+
+        <span *ngIf="controls[ fieldinfo.fieldname ].hasError('pattern')">
+          {{ fieldinfo.fieldlabel }} is incorrect.
+        </span>
+
+      </div>
+      <!-- end error marker and messages -->
+
+    </div>
+    <!-- end success/error markers and messages -->
+
+  </ng-container>
+
+  <div class="control-col">
+    <button class="btn"
+      [disabled]="!dynamicFormGroup.valid"
+      [class.disabled]="!dynamicFormGroup.valid">Submit</button>
+  </div>
+
+</form>
+
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Form Data</div>
+
+    Form Value Object:
+    <pre>{{ dynamicFormGroup.value | json }}</pre> Form Validity:
+    <div>{{ dynamicFormGroup.valid }}</div>
+
+    <button class="btn" (click)="logTheForm()">Log Form Object</button>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Reactive Control</div>
+    <label>Enter name here:
+    <input type="text" [formControl]="name"></label>
+    <p>Value: {{name.value}}</p>
+    <p>Validity: {{name.valid}}</p>
+    <button class="btn" (click)="setValue()">Set Value</button>
+    <button class="btn green" (click)="useValue()">Use Value</button>
+    <p>Output: {{outputValue}}</p>
+  </div>
+</section>

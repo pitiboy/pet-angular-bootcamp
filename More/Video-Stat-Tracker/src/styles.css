@@ -1,0 +1,13 @@
+/* Override materialize width defaults */
+.container {
+  max-width: 95% !important;
+  width: 95% !important;
+}
+
+/* Materialize does not provide a good, general purpose title font */
+.title {
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

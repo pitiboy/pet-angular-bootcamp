@@ -1,0 +1,30 @@
+<h4>Incremental Search (via an API):</h4>
+
+<div class="three-across">
+  <div>
+    <label for="subReddit">Search reddit.com/r/</label>
+    <input id="subReddit" type="text" placeholder="validate" [formControl]="subReddit">
+  </div>
+  <div>
+    <label for="search">for search string</label>
+    <input id="search" type="text" [formControl]="search">
+  </div>
+</div>
+
+<div>
+  <div class="box" *ngFor="let url of results | async">
+    <img [src]="url">
+  </div>
+</div>
+
+<style>
+  .box {
+    float: left;
+    width: 140px;
+    height: 140px;
+    margin: 5px;
+  }
+  .box img {
+    width: 100%;
+  }
+</style>

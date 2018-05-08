@@ -1,0 +1,16 @@
+<header style="margin-top: 5px;">
+  <nav>
+    <div class="nav-wrapper">
+      <ul>
+        <li routerLinkActive="green-background">
+          <a [routerLink]="'/hr'">HR</a></li>
+        <li routerLinkActive="green-background">
+          <a routerLink="/payroll">Payroll</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div>
+  <router-outlet></router-outlet>
+  <div>Fake Copyright ABC 2057</div>
+</div>

@@ -1,0 +1,10 @@
+<section class="card">
+  <div class="card-content">
+    <button class="btn" (click)="toggleItem.emit(0)">Toggle First Item</button>
+    <ul class="collection">
+      <item-detail *ngFor="let item of items; let i = index"
+        [item]="item"
+        (toggle)="toggleItem.emit(i)"></item-detail>
+    </ul>
+  </div>
+</section>

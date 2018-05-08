@@ -1,0 +1,18 @@
+<div class="col s6">
+  <section class="card">
+    <div class="card-content">
+      <div class="card-title"><code>*ngIf</code> then else</div>
+
+      <button class="btn" (click)="increment()">Add One</button>
+
+      <p>
+        <ng-container *ngIf="n % 2; else evenmarker">
+          {{ n }} is odd.
+        </ng-container>
+        <ng-template #evenmarker>
+          {{ n }} is even.
+        </ng-template>
+      </p>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,7 @@
+<p class="title">Top 5 Preview</p>
+<div class="collection">
+  <a *ngFor="let video of (topList | async)" class="collection-item" [routerLink]="" [queryParams]="{videoId: video.id}" [class.active]="(selectedVideo | async)?.id === video.id">
+    <img src="http://img.youtube.com/vi/{{video.id}}/0.jpg">
+    <p>{{video.title}} - {{video.author}}</p>
+  </a>
+</div>

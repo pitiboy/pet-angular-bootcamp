@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">Current Positions</div>
+    <current-positions [positionList]="curPositions | async"></current-positions>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">New Positions</div>
+    <new-positions [newPosList]="newPositions | async" (ackPositions)="ackPos($event)"></new-positions>
+  </div>
+</div>

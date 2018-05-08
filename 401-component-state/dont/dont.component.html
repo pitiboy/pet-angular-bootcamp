@@ -1,0 +1,17 @@
+<div class="two-across">
+
+  <employee-list
+    [curEmployees]="currentEmployees"
+    [newEmployees]="newEmployees"
+    (ackEmployee)="ackEmployee($event)">
+  </employee-list>
+
+  <position-list
+    (ackPosition)="ackPosition($event)"
+    [curPositions]="currentPositions"
+    [newPositions]="newPositions">
+  </position-list>
+
+</div>
+
+<button class="btn" (click)="ackAll()">Acknowledge All</button>

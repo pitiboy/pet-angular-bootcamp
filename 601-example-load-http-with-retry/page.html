@@ -1,0 +1,16 @@
+<div class="two-across">
+
+  <employee-list
+    [employees]="employees | async"
+    (selectedEmployee)="selectedEmployeeId.next($event)">
+  </employee-list>
+
+  <div class="status">
+    Loading status: <b>{{ status | async }}</b>
+  </div>
+
+  <employee-display
+    [style.visibility]="(showEmployeeDetails | async) ? 'visible' : 'hidden'"
+    [employee]="selectedEmployee | async"></employee-display>
+
+</div>

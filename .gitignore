@@ -1,0 +1,20 @@
+jspm_packages
+node_modules
+typings
+Workshop
+workshop
+*.bak
+*.rej
+*.min.js
+
+# Files left behind by AOT builds in steps
+build
+*bundle.js
+*bundle.js.map
+*bundle.css
+*chunk.js
+aot
+aot-*
+*.br
+rxjs
+favicon.ico

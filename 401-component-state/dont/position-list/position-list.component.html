@@ -1,0 +1,14 @@
+<!-- templates pick up complexity to pass information back and forth -->
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Current Positions</div>
+    <current-positions [positionList]="curPositions"></current-positions>
+  </div>
+</section>
+
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">New Positions</div>
+    <new-positions [newPosList]="newPositions" (ackPositions)="ackPos($event)"></new-positions>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<section class="card">
+  <div class="component-marker">order-manager</div>
+  <div class="card-content">
+    <div class="card-title">Order Management Application</div>
+
+    <div class="two-across">
+
+      <order-list
+          (selectOrder)="setOrder($event)"
+          [orders]="orderList"></order-list>
+
+      <order-details
+          [selectedOrderDetails]="selectedOrder"></order-details>
+
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,5 @@
+<ng-container *ngIf="currentVideo | async as video">
+  <div class="video-container z-depth-2">
+    <iframe width="560" height="315" [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+  </div>
+</ng-container>

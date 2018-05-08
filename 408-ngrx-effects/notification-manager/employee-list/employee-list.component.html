@@ -1,0 +1,13 @@
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Current Employees</div>
+    <current-employees [employeeList]="curEmployees | async"></current-employees>
+  </div>
+</section>
+
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">New Employees</div>
+    <new-employees [newEmpList]="newEmployees | async" (ackEmployee)="ackEmp($event)"></new-employees>
+  </div>
+</section>

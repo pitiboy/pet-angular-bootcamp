@@ -1,0 +1,10 @@
+<h3>Angular / Firebase Weather App</h3>
+
+<p>The purpose of this application is to show how Angular
+development can be very declarative, among other things.</p>
+
+<div class="three-across">
+  <div *ngFor="let c of cities">
+    <weather-panel [city]="c"></weather-panel>
+  </div>
+</div>

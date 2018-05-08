@@ -1,0 +1,11 @@
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Employee Data</div>
+    <ul class="collection">
+      <li class="collection-item" *ngFor="let e of (employeeData | async)">
+        {{e.first_name}} {{e.last_name}}
+      </li>
+    </ul>
+  </div>
+</section>
+

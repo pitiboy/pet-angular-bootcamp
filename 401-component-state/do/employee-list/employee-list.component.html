@@ -1,0 +1,13 @@
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Current Employees</div>
+    <current-employees [employeeList]="currentEmployees"></current-employees>
+  </div>
+</section>
+
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">New Employees</div>
+    <new-employees [newEmpList]="newEmployees" (ackEmployee)="ackEmployee($event)"></new-employees>
+  </div>
+</section>

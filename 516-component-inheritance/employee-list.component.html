@@ -1,0 +1,15 @@
+<h2>{{heading}}</h2>
+
+<ul class="collection">
+  <li *ngFor="let e of employees" class="collection-item">
+    <h5 class="left">{{e.first_name}} {{e.last_name}}</h5>
+    <button (click)="selectEmployee(e)" class="btn right">Select</button>
+  </li>
+</ul>
+
+<style>
+  .card-content,
+  .collection .collection-item {
+    overflow: auto;
+  }
+</style>

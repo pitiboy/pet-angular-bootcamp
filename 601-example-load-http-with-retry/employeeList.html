@@ -1,0 +1,16 @@
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Select Employee</div>
+    <p *ngFor="let employee of employees">
+      <a (click)="selectedEmployee.emit(employee.id)">
+        {{employee.first_name}} {{employee.last_name}}
+      </a>
+    </p>
+  </div>
+</section>
+
+<style>
+  a {
+    cursor: pointer;
+  }
+</style>

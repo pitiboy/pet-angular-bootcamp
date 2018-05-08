@@ -1,0 +1,48 @@
+<div class="two-across">
+
+  <section class="card">
+    <div class="card-content">
+      <div class="card-title">Profile</div>
+      <div *ngIf="showProfile">
+        Phone number: 555-123-1345 <br>
+        Email address: test@abccompany.com <br>
+        Address: 1 Main Street, St. Louis, MO 63105 <br>
+      </div>
+    </div>
+    <div class="card-action">
+      <button class="btn" (click)="showProfile = !showProfile">{{ showProfile ? 'Hide' : 'Show'}} Profile</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-content">
+      <div class="card-title">Todo List</div>
+      <ul class="collection" style="height: 140px; overflow-y: auto">
+        <li class="collection-item" *ngFor="let todo of todos">{{todo}}</li>
+      </ul>
+      <a class="btn-floating btn-large red" (click)="addTodo()"><i class="material-icons">add</i></a>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-content">
+      <div class="card-title">Upcoming Meetings</div>
+      <ul class="collection">
+        <li class="collection-item" *ngFor="let meeting of nextMeetings; index as i">{{i + 1}}: {{meeting.description}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-content">
+      <div class="card-title">Who is in meetings</div>
+      <ul class="collection">
+        <li class="collection-item" *ngFor="let meeting of nextMeetings">
+          {{meeting.description}}:
+          <span *ngFor="let person of meeting.participants">{{person}} </span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</div>

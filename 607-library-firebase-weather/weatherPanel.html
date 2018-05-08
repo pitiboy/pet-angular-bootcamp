@@ -1,0 +1,18 @@
+<h5><b>{{city}}</b> weather:</h5>
+<p>current temperature: {{ (currently | async)?.temperature }}</p>
+<p>current windSpeed: {{ (currently | async)?.windSpeed }}</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Temp</th>
+      <th>Precip</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let d of hourly | async">
+    <td>{{ d.time | secondsToDate | date:'H:m:s' }}</td>
+    <td>{{ d.temperature }}</td>
+    <td>{{ d.precipIntensity }}</td>
+  </tr>
+</table>

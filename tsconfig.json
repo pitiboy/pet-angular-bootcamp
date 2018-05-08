@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "outDir": "build",
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "More",
+    "SKIP-create-bundle",
+    "SKIP-publish",
+    "AOT-SKIP-rollup",
+    "AOT-SKIP-cli",
+    "AOT-SKIP-closure",
+    "node_modules"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "aot",
+    "fullTemplateTypeCheck": true,
+    "skipMetadataEmit": true
+  }
+}

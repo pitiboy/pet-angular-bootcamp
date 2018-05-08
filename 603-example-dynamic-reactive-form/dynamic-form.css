@@ -1,0 +1,25 @@
+
+form {
+  display: grid;
+  grid-template-columns: 1fr auto 300px 200px 300px 1fr;
+  grid-gap: 1.5rem;
+}
+
+.label-col {
+  grid-column: 2;
+  align-self: center;
+  text-align: right;
+}
+
+.control-col {
+  grid-column: 3;
+}
+
+.validation-col {
+  grid-column: 4;
+  align-self: center;
+}
+
+input.control-col {
+  margin: 0;
+}

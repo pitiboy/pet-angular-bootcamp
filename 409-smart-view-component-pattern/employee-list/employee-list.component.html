@@ -1,0 +1,10 @@
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Select Employee</div>
+    <p *ngFor="let employee of list | async">
+      <a [routerLink]="['/employee', employee.id]">
+        {{employee.first_name}} {{employee.last_name}}
+      </a>
+    </p>
+  </div>
+</section>

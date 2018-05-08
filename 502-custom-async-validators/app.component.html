@@ -1,0 +1,35 @@
+<h4>Login Form</h4>
+
+<form [formGroup]="inputFormGroup" (ngSubmit)="onLogin()" class="two-across">
+  <label>
+    <span>Enter Input</span>
+    <input type="text" formControlName="input">
+    {{inputFormGroup.get('input')?.errors | json}}
+  </label>
+
+  <label>
+    <span>Enter a Western ZIP code</span>
+    <input type="text" formControlName="zip">
+    {{inputFormGroup.get('zip')?.errors | json}}
+    <span *ngIf="inputFormGroup.get('zip')?.pending">Pending Spinner Goes Here</span>
+  </label>
+
+  <div>
+    <button [disabled]="!inputFormGroup.valid" class="btn"
+    [class.disabled]="!inputFormGroup.valid" >Login</button>
+  </div>
+</form>
+
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Form Data</div>
+
+    Form Value Object:
+    <pre>{{ inputFormGroup.value | json }}</pre>
+
+    Form Validity:
+    <div>{{ inputFormGroup.valid }}</div>
+
+    <button class="btn" (click)="logTheForm()">Log Form Object</button>
+  </div>
+</section>

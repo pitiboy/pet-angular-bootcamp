@@ -1,0 +1,31 @@
+<a href="test.html">
+  <button class="btn">Run the tests here</button>
+</a>
+<a href="https://developers.livechatinc.com/blog/testing-angular-2-apps-dependency-injection-and-components/">
+  <button class="btn">Great Reference on Testing</button>
+</a>
+<a href="https://angular.io/guide/testing">
+  <button class="btn">Testing Docs</button>
+</a>
+
+<p>(If you are viewing this online with StackBlitz or similar tool,
+    the unit tests won't work with the link above.)</p>
+
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">From the previous pipes example</div>
+
+    <p>True: {{true | checkmark}}</p>
+    <p>False: {{false | checkmark}}</p>
+  </div>
+</section>
+
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Employee team</div>
+
+    <span *ngFor="let e of team | async">
+      {{ e.first_name }}
+    </span>
+  </div>
+</section>

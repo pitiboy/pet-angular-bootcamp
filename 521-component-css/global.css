@@ -1,0 +1,11 @@
+/*
+  This file is included globally in the index.html.
+*/
+
+.outline-box {
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 6px;
+  margin: 6px;
+  border: 3px solid red;
+}

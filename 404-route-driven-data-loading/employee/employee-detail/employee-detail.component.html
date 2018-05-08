@@ -1,0 +1,10 @@
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Name: {{(employee | async)?.first_name}} {{(employee | async)?.last_name}}</div>
+    <p>Email: <b>{{(employee | async)?.email}}</b></p>
+    <p>Hours Worked: <b>{{(employee | async)?.hours_worked}}</b></p>
+    <p>Hourly Wage: <b>{{(employee | async)?.hourly_wage}}</b></p>
+    <hr>
+    <a [routerLink]="['/employees']">Back to list</a>
+  </div>
+</section>

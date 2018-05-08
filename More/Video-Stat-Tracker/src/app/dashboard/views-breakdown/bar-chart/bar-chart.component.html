@@ -1,0 +1,15 @@
+<ng-container *ngIf="graphData">
+  <p>Views by age</p>
+  <svg [attr.width]="graphData.width + 50" [attr.height]="graphData.height + 45">
+    <line x1="50" x2="50" y1="1" [attr.y2]="graphData.height" stroke-width="1" stroke="black"></line>
+    <line x1="50" x2="499" [attr.y1]="graphData.height" [attr.y2]="graphData.height" stroke-width="1" stroke="black"></line>
+    <text x="1" y="100">Views</text>
+    <text x="240" [attr.y]="graphData.height + 25">Age</text>
+    <text *ngFor="let rect of graphData.rectList" [attr.x]="rect.x + rect.width/2 + 43" [attr.y]="graphData.height + 14">{{rect.value}}</text>
+    <line stroke-width="1" stroke="black" *ngFor="let rect of graphData.rectList" [attr.x1]="rect.x + rect.width/2 + 50" [attr.x2]="rect.x + rect.width/2 + 50"
+      y1="0" [attr.y2]="graphData.height + 7"></line>
+    <rect *ngFor="let rect of graphData.rectList" [attr.x]="rect.x + 50" [attr.y]="rect.y" [attr.width]="rect.width" [attr.height]="rect.height"
+      stroke="black" fill="#4439a0"></rect>
+    <text stroke="white" *ngFor="let rect of graphData.rectList" [attr.x]="rect.x + rect.width/2 + 43" [attr.y]="rect.y + 15">{{rect.count}}</text>
+  </svg>
+</ng-container>

@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">Sales Report: {{reportDate | date:'mediumDate'}}</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="number-column">Units Sold (millions)</th>
+          <th class="number-column">Total</th>
+          <th class="number-column">%</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let record of records">
+          <td>{{record.empName}}</td>
+          <td class="number-column">{{record.units | number:'1.4-4'}}</td>
+          <td class="number-column">{{record.totalRevenue | currency:'USD':'symbol' }}</td>
+          <td class="number-column">{{(record.percent / 100) | percent:'1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    Report expires: {{ expirationDate | date:'longDate' | uppercase }}
+
+  </div>
+</div>
+
+<button class="btn" (click)="showJSON = !showJSON">
+  {{showJSON ? 'Hide' : 'Show'}} data for export
+</button>
+
+<pre *ngIf="showJSON">{{records | json}}</pre>

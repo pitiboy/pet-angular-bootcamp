@@ -1,0 +1,58 @@
+# The script has worked effectively in the past to set up the Angular
+# Boot Camp curriculum for use in the Cloud 9 online IDE. As of 2018
+# we no longer use Cloud 9 in teaching the class, but this script
+# could be useful if it was ever necessary as a fallback.
+
+# Run me with "source":
+# . c9setup
+
+start=`date +%s`
+
+# Current Node, required by Angular CLI
+nvm install 8
+nvm use 8
+nvm alias default 8
+
+# Install Yarn using its install script:
+curl -o- -L https://yarnpkg.com/install.sh | bash
+export PATH="$HOME/.yarn/bin:$PATH"
+
+# live-server and json-server global installs, handy if
+# someone wants to run them at the command line.
+yarn global add live-server json-server
+
+# Angular CLI
+yarn global add @angular/cli
+
+# Configure Angular CLI to use yarn - faster
+ng set --global packageManager=yarn
+
+# Create new CLI application
+echo
+echo "Done with global install, creating Angular CLI workshop-app"
+echo
+cd ~/workspace
+ng new workshop-app
+
+# Set ports to work with Cloud 9 range (8080-8082) and proxy JSON server
+cp abc/proxy.conf.json workshop-app
+sed -i.bak 's/ng serve"/ng serve --host 0.0.0.0 --port 8081 --proxy-config proxy.conf.json --disable-host-check"/g' workshop-app/package.json
+
+# Install typings for the abc kit, in case C9 adds TypeScript help
+cd ~/workspace
+cd abc || echo "ok, no abc dir"
+yarn
+
+end=`date +%s`
+runtime=$((end-start))
+echo "Setup script execution time (seconds): ${runtime}"
+
+# run live-server and json-server, ready to start class.
+
+echo
+echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
+echo "Use 'Preview Running Application' to obtain the served URL."
+echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
+echo
+
+npm start --silent
